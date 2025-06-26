@@ -1,8 +1,16 @@
-@import "tailwindcss";
+/* Tailwind base layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* brand palette (light) */
+  --primary: #4f46e5;   /* indigo-600 */
+  --primary-hover: #4338ca;
+  --link: #2563eb;      /* blue-600 */
+  --link-hover: #1e40af;
 }
 
 @theme inline {
@@ -16,6 +24,10 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+  --primary: #6366f1;   /* indigo-500 (brighter for dark) */
+  --primary-hover: #818cf8;
+  --link: #60a5fa;      /* blue-400 */
+  --link-hover: #93c5fd;
   }
 }
 
@@ -66,12 +78,12 @@ body {
   }
 
   a {
-    color: theme("colors.blue.600");
+    color: var(--link);
     text-decoration: underline;
     transition: color 0.2s;
   }
   a:hover {
-    color: theme("colors.blue.800");
+    color: var(--link-hover);
   }
 
   code {
@@ -99,10 +111,10 @@ body {
 
   @layer base {
     a {
-      color: theme("colors.blue.400");
+      color: var(--link);
     }
     a:hover {
-      color: theme("colors.blue.300");
+      color: var(--link-hover);
     }
     code,
     pre {

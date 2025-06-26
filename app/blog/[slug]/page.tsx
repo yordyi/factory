@@ -48,7 +48,7 @@ function renderMarkdown(content: string): string {
     // Italic
     .replace(/\*(.*?)\*/g, '<em>$1</em>')
     // Paragraphs
-    .split('\n\n').join('</p><p class="my-4 leading-relaxed">');
+    .split('\n\n').join('</p><p>');
 }
 
 export default async function BlogPost({
@@ -186,11 +186,9 @@ export default async function BlogPost({
       {/* Content */}
       <div className="max-w-3xl mx-auto">
         <div
-          className="text-lg leading-relaxed"
+          className="prose lg:prose-lg dark:prose-invert mx-auto"
           dangerouslySetInnerHTML={{
-            __html: `<p class="my-4 leading-relaxed">${renderMarkdown(
-              post.content,
-            )}</p>`,
+            __html: `<p>${renderMarkdown(post.content)}</p>`,
           }}
         />
       </div>

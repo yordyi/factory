@@ -33,7 +33,8 @@ export const authors: Record<string, Author> = {
   yordyi: {
     id: 'yordyi',
     name: '郭帅豪',
-    avatar: '/images/authors/yordyi.jpg',
+    // 暂用占位图，后续可替换为真实头像
+    avatar: '',
     bio: '全栈开发者，热衷于探索前端新技术和最佳实践。',
   },
 };
@@ -106,7 +107,8 @@ Next.js 15 代表了 Web 开发的重大进步。通过 Turbopack、React Server
     author: authors.yordyi,
     tags: ['Next.js', '前端开发', 'React', 'Turbopack', '性能优化'],
     readTime: 8,
-    coverImage: '/images/blog/nextjs-15.jpg',
+    // 占位封面图，后续可替换为真实图片
+    coverImage: 'https://via.placeholder.com/800x450?text=Next.js+15',
   },
   {
     id: '2',
@@ -215,7 +217,8 @@ Next.js 15 代表了 Web 开发的重大进步。通过 Turbopack、React Server
     author: authors.yordyi,
     tags: ['博客设计', '前端开发', 'SEO', '性能优化', '用户体验'],
     readTime: 10,
-    coverImage: '/images/blog/modern-blog.jpg',
+    // 占位封面图
+    coverImage: 'https://via.placeholder.com/800x450?text=Modern+Blog',
   },
 ];
 
