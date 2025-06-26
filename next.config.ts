@@ -10,6 +10,14 @@ const nextConfig: NextConfig = {
     dangerouslyAllowSVG: true,
     contentSecurityPolicy:
       "default-src 'self'; img-src * data: blob:; media-src 'none';",
+    /** allow loading external placeholder images */
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "via.placeholder.com",
+        pathname: "/**",
+      },
+    ],
   },
 
   /**

@@ -152,8 +152,4 @@ body {
     -webkit-line-clamp: 5;
   }
 
-  /* Prose class for blog content width */
-  .prose-center {
-    @apply prose mx-auto lg:prose-lg dark:prose-invert;
-  }
 }
