@@ -19,8 +19,129 @@
   }
 }
 
+/* ---------- Base styles & typography ---------- */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply antialiased;
+  font-family: var(--font-sans, system-ui, sans-serif);
+  scrollbar-gutter: stable;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--foreground);
+  }
+
+  h1 {
+    font-size: 2.25rem;
+  }
+  h2 {
+    font-size: 1.875rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  h4 {
+    font-size: 1.25rem;
+  }
+
+  p {
+    margin-bottom: 1.25rem;
+    line-height: 1.75;
+    text-wrap: balance;
+  }
+
+  a {
+    color: theme("colors.blue.600");
+    text-decoration: underline;
+    transition: color 0.2s;
+  }
+  a:hover {
+    color: theme("colors.blue.800");
+  }
+
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.95em;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 0.15em 0.35em;
+    border-radius: 4px;
+  }
+
+  pre {
+    font-family: var(--font-mono);
+    background: rgba(0, 0, 0, 0.05);
+    padding: 1rem;
+    overflow: auto;
+    border-radius: 8px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+  }
+
+  @layer base {
+    a {
+      color: theme("colors.blue.400");
+    }
+    a:hover {
+      color: theme("colors.blue.300");
+    }
+    code,
+    pre {
+      background: rgba(255, 255, 255, 0.08);
+    }
+  }
+}
+
+/* ---------- Custom utilities ---------- */
+@layer utilities {
+  /* Text balance utility for titles/paragraphs */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Simple line-clamp utilities without plugin */
+  .line-clamp-1,
+  .line-clamp-2,
+  .line-clamp-3,
+  .line-clamp-5 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .line-clamp-1 {
+    -webkit-line-clamp: 1;
+  }
+  .line-clamp-2 {
+    -webkit-line-clamp: 2;
+  }
+  .line-clamp-3 {
+    -webkit-line-clamp: 3;
+  }
+  .line-clamp-5 {
+    -webkit-line-clamp: 5;
+  }
+
+  /* Prose class for blog content width */
+  .prose-center {
+    @apply prose mx-auto lg:prose-lg dark:prose-invert;
+  }
 }
